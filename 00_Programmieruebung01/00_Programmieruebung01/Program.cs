@@ -162,10 +162,10 @@ class Program
     static (int, int) ReadInTwoNumbers()
     {
         Console.WriteLine("Bitte geben Sie die erste Zahl ein:");
-        int zahl1 = int.Parse(Console.ReadLine());
+        int zahl1 = int.TryParse(Console.ReadLine());
 
         Console.WriteLine("Bitte geben Sie die zweite Zahl ein:");
-        int zahl2 = int.Parse(Console.ReadLine());
+        int zahl2 = int.TryParse(Console.ReadLine());
 
         return (zahl1, zahl2);
     }
