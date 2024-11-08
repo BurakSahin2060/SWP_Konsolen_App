@@ -38,4 +38,37 @@ namespace _07_Objektorientierung
             _BirthDate = birthdate;
         }
     }
+
+    class Tierheim
+    {
+        private List<Cat> _cats;
+        public Tierheim()
+        {
+            _cats = new List<Cat>();
+        }
+
+        public void AddCat(Cat cat)
+        {
+            _cats.Add(cat);
+        }
+
+        public void RemoveCat(Cat cat)
+        {
+            _cats.Remove(cat);
+        }
+
+        public void ShowAllCats()
+        {
+            Console.WriteLine("Katzen im Tierheim:");
+            foreach (var cat in _cats)
+            {
+                Console.WriteLine($"Farbe: {cat.Color}, Alter: {cat.Age} Jahre");
+            }
+        }
+
+        public int CatCount
+        {
+            get { return _cats.Count; }
+        }
+    }
 }
