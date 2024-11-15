@@ -28,6 +28,8 @@ class Program
         Console.WriteLine($"Anzahl der Katzen im Tierheim: {tierheim.CatCount}");
 
         tierheim.ShowAllCats();
+
+        Console.ReadLine();
     }
 }
 
