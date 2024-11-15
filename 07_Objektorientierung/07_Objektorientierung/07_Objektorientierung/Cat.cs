@@ -7,85 +7,45 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace _07_Objektorientierung;
 
-class Cat
+class Cat : Animal
 {
-    private string _Color;
-    private DateTime _BirthDate;
+    public string Name { get; set; }
+    public DateTime BirthDate { get; set; }
 
-    public string Color { get; set; }
-
-    //public string Color
-    //{
-    //    get { return _Color; }
-    //    set
-    //    {
-    //        if (_Color == value) return;
-    //        _Color = value;
-    //    }
-    //}
+    public Cat(string name, DateTime birthDate, string color) : base(color)
+    {
+        Name = name;
+        BirthDate = birthDate;
+    }
 
     public int Age
     {
         get
         {
-            var today = DateTime.Today;
-            int age = today.Year - _BirthDate.Year;
-            if (_BirthDate.Date > today.AddYears(-age)) age--;
-            return age;
+            return DateTime.Now.Year - BirthDate.Year;
         }
-    }
-
-    public Cat(DateTime birthdate)
-    {
-        _BirthDate = birthdate;
-    }
-
-    public override string ToString()
-    {
-        return $"Katze mit der Farbe {Color} und Alter {Age} Jahre.";
     }
 }
 
-
 class Tierheim
 {
-    private List<Cat> _cats;
-    public Tierheim()
-    {
-        _cats = new List<Cat>();
-    }
+    private List<Cat> cats = new List<Cat>();
 
     public void AddCat(Cat cat)
     {
-        _cats.Add(cat);
+        cats.Add(cat);
     }
-
-    public void RemoveCat(Cat cat)
-    {
-        _cats.Remove(cat);
-    }
-
-    //public void ShowAllCats()
-    //{
-    //    Console.WriteLine("Katzen im Tierheim:");
-    //    foreach (var cat in _cats)
-    //    {
-    //        Console.WriteLine($"Farbe: {cat.Color}, Alter: {cat.Age} Jahre");
-    //    }
-    //}
-
-    public void ShowAllCats()
-    {
-        Console.WriteLine("Katzen im Tierheim:");
-        foreach (var cat in _cats)
-        {
-            Console.WriteLine(cat);
-        }
-    }
-
 
     public int CatCount
     {
-        get { return _cats.Count; }
+        get { return cats.Count; }
+    }
+
+    public void ShowAllCats()
+    {
+        foreach (var cat in cats)
+        {
+            Console.WriteLine($"Name: {cat.Name}, Farbe: {cat.Color}, Alter: {cat.Age} Jahre");
+        }
     }
 }
