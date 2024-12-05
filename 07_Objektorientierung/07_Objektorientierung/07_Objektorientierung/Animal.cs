@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace _07_Objektorientierung
 {
-    class Animal
+    class Animal : Lebewesen
     {
-        public string? Color { get; set; }
-
-        public Animal(string? color)
+        public string Name { get; set; }
+        public Animal(string name, DateTime birthDate) : base(birthDate)
+            public Animal(string name, DateTime birthDate, string color) : base(birthDate, color, name)
         {
-            Color = color;
+
+            Name = name;
+        }
+        public override string ToString()
+        {
+            return Name;
         }
     }
 }
