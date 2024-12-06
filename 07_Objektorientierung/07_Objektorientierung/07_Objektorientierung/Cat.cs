@@ -9,16 +9,11 @@ namespace _07_Objektorientierung
 {
     class Cat : Animal
     {
-
-
-        public Cat(DateTime birthDate, string color = "Nicht Verfügbar", string name = "nicht Verfügbar") : base(name, birthDate, color)
-            public Cat(DateTime birthDate, string color = "Nicht Verfügbar", string name = "nicht Verfügbar") : base(name, birthDate, color, 4, "Katze")
+        public Cat(DateTime birthDate, string color = "Nicht Verfügbar", string name = "nicht Verfügbar") : base(name, birthDate, color, 4, "Katze")
         {
-
         }
         public override string ToString()
         {
-            return $"Name: {Name}, Farbe: {Color}, Alter: {Age}";
             return $"Name: {Name}, Farbe: {Color}, Alter: {Age}, Beine: {Beine}";
         }
         public override void gibTypischenLautVonDir()

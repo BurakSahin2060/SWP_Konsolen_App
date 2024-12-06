@@ -2,131 +2,101 @@
 using _07_Objektorientierung;
 
 bool besuch = true;
-Tierheim tierheim = new Tierheim();
+Tierheim myTier = new Tierheim();
 Animal lastAnimal = null;
 
-void StartTierConsole()
+void tierConsole()
 {
     while (besuch)
     {
-        Console.WriteLine("Willst du ein Tier hinzufügen (yes/no)?");
-        string userInput = Console.ReadLine()?.ToLower();
-
-        if (userInput == "yes")
+        Console.WriteLine("Willst du ein Tier hinzufügen (yes/no)");
+        string addCatRead = Console.ReadLine();
+        if (addCatRead == "yes" || addCatRead == "no")
         {
-            Console.WriteLine("Was für ein Tier möchtest du hinzufügen?\n1. Katze\n2. Hund");
-            if (int.TryParse(Console.ReadLine(), out int tierArt))
+            if (addCatRead == "yes")
             {
-                switch (tierArt)
+                Console.WriteLine("Wann ist das Tier geboren? ");
+                string catBirthDate = Console.ReadLine();
+                if (DateTime.TryParse(catBirthDate, out DateTime dtBirth))
                 {
-                    case 1:
-                        AddCat();
-                        break;
-                    case 2:
-                        AddDog();
-                        break;
-                    default:
-                        Console.WriteLine("Ungültige Eingabe. Bitte gib eine 1 oder 2 ein.");
-                        break;
-                }
-
-                ShowNextActions();
-            }
-            else
-            {
-                Console.WriteLine("Ungültige Eingabe. Bitte gib eine Zahl ein.");
-            }
-        }
-        else if (userInput == "no")
-        {
-            besuch = false;
-        }
-        else
-        {
-            Console.WriteLine("Das ist keine gültige Eingabe. Bitte antworte mit 'yes' oder 'no'.");
-        }
-    }
-}
-
-void AddCat()
-{
-    Console.WriteLine("Gib das Geburtsdatum der Katze ein (z. B. 01.01.2020):");
-    if (DateTime.TryParse(Console.ReadLine(), out DateTime geburtsdatum))
-    {
-        Console.WriteLine("Welche Farbe hat die Katze?");
-        string farbe = Console.ReadLine();
-
-        Console.WriteLine("Wie heißt die Katze?");
-        string name = Console.ReadLine();
-
-        Cat neueKatze = new Cat(geburtsdatum, farbe, name);
-        tierheim.AddAnimal(neueKatze);
-        lastAnimal = neueKatze;
-
-        Console.WriteLine("Katze hinzugefügt. Hier ist die aktuelle Liste aller Tiere:");
-        tierheim.ShowAnimals();
-    }
-    else
-    {
-        Console.WriteLine("Ungültiges Datum. Versuche es erneut.");
-    }
-}
-
-void AddDog()
-{
-    Console.WriteLine("Gib das Geburtsdatum des Hundes ein (z. B. 01.01.2020):");
-    if (DateTime.TryParse(Console.ReadLine(), out DateTime geburtsdatum))
-    {
-        Console.WriteLine("Welche Farbe hat der Hund?");
-        string farbe = Console.ReadLine();
-
-        Console.WriteLine("Wie heißt der Hund?");
-        string name = Console.ReadLine();
-
-        Dog neuerHund = new Dog(geburtsdatum, farbe, name);
-        tierheim.AddAnimal(neuerHund);
-        lastAnimal = neuerHund;
-
-        Console.WriteLine("Hund hinzugefügt. Hier ist die aktuelle Liste aller Tiere:");
-        tierheim.ShowAnimals();
-    }
-    else
-    {
-        Console.WriteLine("Ungültiges Datum. Versuche es erneut.");
-    }
-}
-
-void ShowNextActions()
-{
-    Console.WriteLine("Was willst du nun tun?\n1. Ein weiteres Tier hinzufügen\n2. Geräusch vom letzten Tier ausgeben\n3. Beenden");
-    if (int.TryParse(Console.ReadLine(), out int action))
-    {
-        switch (action)
-        {
-            case 1:
-                break; // Bleibt in der Schleife von StartTierConsole.
-            case 2:
-                if (lastAnimal != null)
-                {
-                    lastAnimal.gibTypischenLautVonDir();
+                    Console.WriteLine("Welche Farbe hat das Tier?");
+                    string animalColor = Console.ReadLine();
+                    Console.WriteLine("Wie heißt das Tier?");
+                    string animalName = Console.ReadLine();
+                    TierAbfrage();
+                    string tierArt = Console.ReadLine();
+                    if (int.TryParse(tierArt, out int tierArtAbfrage))
+                    {
+                        switch (tierArtAbfrage)
+                        {
+                            case 1:
+                                Cat cat = new Cat(dtBirth, animalColor, animalName);
+                                myTier.AddAnimal(cat);
+                                lastAnimal = cat;
+                                break;
+                            case 2:
+                                Dog dog = new Dog(dtBirth, animalColor, animalName);
+                                myTier.AddAnimal(dog);
+                                lastAnimal = dog;
+                                break;
+                        }
+                        Console.WriteLine("Hier ist die Liste mit allen Tieren:");
+                        myTier.ShowAnimals();
+                        Console.WriteLine("Was willst du nun anstellen? \n1.Katze hinzufügen\n2.Geräusch vom Tier ausgeben");
+                        string inputEnd = Console.ReadLine();
+                        if (int.TryParse(inputEnd, out int dtEnd))
+                        {
+                            switch (dtEnd)
+                            {
+                                case 1:
+                                    AddCat();
+                                    break;
+                                case 2:
+                                    lastAnimal.gibTypischenLautVonDir();
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Dies ist nicht möglich!");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Das ist keine gültige Zahl");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Es wurde noch kein Tier hinzugefügt.");
+                    Console.WriteLine("Dies ist das falsche Format");
                 }
-                break;
-            case 3:
+            }
+            else if (addCatRead == "no")
+            {
                 besuch = false;
-                break;
-            default:
-                Console.WriteLine("Ungültige Auswahl. Versuche es erneut.");
-                break;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Das ist keine gültige Eingabe!");
         }
     }
-    else
+}
+tierConsole();
+void AddCat()
+{
+    Console.WriteLine("Willst du noch eine weitere Katze hinzufügen? yes/no");
+    string addCatAgain = Console.ReadLine();
+    if (addCatAgain == "yes")
     {
-        Console.WriteLine("Ungültige Eingabe. Versuche es erneut.");
+        tierConsole();
+    }
+    else if (addCatAgain == "no")
+    {
+        besuch = false;
     }
 }
-
-StartTierConsole();
+void TierAbfrage()
+{
+    Console.WriteLine("Was für ein Tier ist es? \n 1.Cat \n 2.Dog");
+}
