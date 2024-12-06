@@ -22,5 +22,14 @@ namespace _07_Objektorientierung
                 Console.WriteLine(cat);
             }
         }
+        public int NumberOfCats
+        {
+            get { return tiere.Select(a => a.GetType() == typeof(Cat)).Count(); }
+        }
+
+        public int NumberOfDogs
+        {
+            get { return tiere.Select(a => a.GetType() == typeof(Dog)).Count(); }
+        }
     }
 }

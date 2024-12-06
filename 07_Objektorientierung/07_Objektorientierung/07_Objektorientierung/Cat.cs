@@ -18,7 +18,7 @@ namespace _07_Objektorientierung
         }
         public override void gibTypischenLautVonDir()
         {
-            Console.WriteLine("Miaow!");
+            Console.WriteLine("Meowwwwwww!");
         }
     }
 }

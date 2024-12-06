@@ -42,7 +42,7 @@ void tierConsole()
                         }
                         Console.WriteLine("Hier ist die Liste mit allen Tieren:");
                         myTier.ShowAnimals();
-                        Console.WriteLine("Was willst du nun anstellen? \n1.Katze hinzufügen\n2.Geräusch vom Tier ausgeben");
+                        Console.WriteLine("Was willst du nun anstellen? \n1.Katze hinzufügen\n2.Geräusch vom Tier ausgeben\n3.Anzahl der Katzen ausgeben\n4.Anzahl der Hunde ausgeben");
                         string inputEnd = Console.ReadLine();
                         if (int.TryParse(inputEnd, out int dtEnd))
                         {
@@ -53,6 +53,12 @@ void tierConsole()
                                     break;
                                 case 2:
                                     lastAnimal.gibTypischenLautVonDir();
+                                    break;
+                                case 3:
+                                    Console.WriteLine($"Es sind {myTier.NumberOfCats} Katzen");
+                                    break;
+                                case 4:
+                                    Console.WriteLine($"Es sind {myTier.NumberOfDogs} Katzen");
                                     break;
                             }
                         }
