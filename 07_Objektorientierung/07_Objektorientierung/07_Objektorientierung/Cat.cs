@@ -5,25 +5,45 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace _07_Objektorientierung
-{
-    class Cat : Animal
-    {
+namespace _07_Objektorientierung;
 
+class Cat : Animal
+{
+
+    public string Color { get; set; }
+    public int Age { get { return (DateTime.Now.Year - _BirthDate.Year); } }
+
+    public Cat(DateTime birthDate, string color = "Nicht Verfügbar", string name = "nicht Verfügbar") : base(name, birthDate)
 
         public Cat(DateTime birthDate, string color = "Nicht Verfügbar", string name = "nicht Verfügbar") : base(name, birthDate, color)
-            public Cat(DateTime birthDate, string color = "Nicht Verfügbar", string name = "nicht Verfügbar") : base(name, birthDate, color, 4, "Katze")
-        {
+    {
+        Color = color;
+    }
+    public override string ToString()
+    {
+        return $"Name: {Name}, Farbe: {Color}, Alter: {Age}";
+    }
+}
 
-        }
-        public override string ToString()
+class Tierheim
+{
+    private List<Cat> cats = new List<Cat>();
+
+    public void AddCat(Cat cat)
+    {
+        cats.Add(cat);
+    }
+
+    public int CatCount
+    {
+        get { return cats.Count; }
+    }
+
+    public void ShowAllCats()
+    {
+        foreach (var cat in cats)
         {
-            return $"Name: {Name}, Farbe: {Color}, Alter: {Age}";
-            return $"Name: {Name}, Farbe: {Color}, Alter: {Age}, Beine: {Beine}";
-        }
-        public override void gibTypischenLautVonDir()
-        {
-            Console.WriteLine("Meowwwwwww!");
+            Console.WriteLine($"Name: {cat.Name}, Farbe: {cat.Color}, Alter: {cat.Age} Jahre");
         }
     }
 }
