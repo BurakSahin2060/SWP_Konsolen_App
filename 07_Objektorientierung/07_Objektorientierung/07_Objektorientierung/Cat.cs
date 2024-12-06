@@ -9,21 +9,19 @@ namespace _07_Objektorientierung;
 
 class Cat : Animal
 {
-    public string Name { get; set; }
-    public DateTime BirthDate { get; set; }
 
-    public Cat(string name, DateTime birthDate, string color) : base(color)
+    public string Color { get; set; }
+    public int Age { get { return (DateTime.Now.Year - _BirthDate.Year); } }
+
+    public Cat(DateTime birthDate, string color = "Nicht Verfügbar", string name = "nicht Verfügbar") : base(name, birthDate)
+
+        public Cat(DateTime birthDate, string color = "Nicht Verfügbar", string name = "nicht Verfügbar") : base(name, birthDate, color)
     {
-        Name = name;
-        BirthDate = birthDate;
+        Color = color;
     }
-
-    public int Age
+    public override string ToString()
     {
-        get
-        {
-            return DateTime.Now.Year - BirthDate.Year;
-        }
+        return $"Name: {Name}, Farbe: {Color}, Alter: {Age}";
     }
 }
 
