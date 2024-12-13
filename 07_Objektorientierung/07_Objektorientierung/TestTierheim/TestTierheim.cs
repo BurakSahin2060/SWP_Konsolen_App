@@ -1,4 +1,4 @@
-using MyFirstCat;
+using _07_Objektorientierung;
 
 namespace TestTierheim
 {
