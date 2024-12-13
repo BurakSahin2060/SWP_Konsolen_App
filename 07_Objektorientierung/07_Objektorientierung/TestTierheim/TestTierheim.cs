@@ -2,8 +2,7 @@ using _07_Objektorientierung;
 
 namespace TestTierheim
 {
-    public class Tests : PageTest
-    {
+    public class TestTierheim {
         [SetUp]
         public void Setup()
         {
@@ -15,7 +14,7 @@ namespace TestTierheim
             var myTierheim = new Tierheim();
             myTierheim.AddAnimal(new Cat("Kitty", "white", new DateTime(2023, 07, 13)));
             myTierheim.AddAnimal(new Dog("Lessi", "grey", new DateTime(2023, 07, 13)));
-            Assert.IsTrue(myTierheim.NumberOfAnimals == 2);
+            Assert.IsTrue(myTierheim.GetAnimalCount() == 2);
         }
     }
 }

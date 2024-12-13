@@ -6,30 +6,51 @@ using System.Threading.Tasks;
 
 namespace _07_Objektorientierung
 {
-    class Tierheim
+    public class Tierheim
     {
-        public List<Animal> tiere = new List<Animal>();
-        public void AddAnimal(Animal animal)
+        private List<Animal> _animals;
+
+        public Tierheim()
         {
-            tiere.Add(animal);
-            Console.WriteLine($"\nEs wurde neues {animal.TierTyp} {animal} hinzugefügt!\n");
-        }
-        public void ShowAnimals()
-        {
-            int index = 1;
-            foreach (var cat in tiere)
-            {
-                Console.WriteLine(cat);
-            }
-        }
-        public int NumberOfCats
-        {
-            get { return tiere.Select(a => a.GetType() == typeof(Cat)).Count(); }
+            _animals = new List<Animal>();
         }
 
-        public int NumberOfDogs
+        public void AddAnimal(Animal animal)
         {
-            get { return tiere.Select(a => a.GetType() == typeof(Dog)).Count(); }
+            _animals.Add(animal);
+        }
+        public void AddCat(Cat cat)
+        {
+            _animals.Add(cat);
+        }
+        public void AddDog(Dog dog)
+        {
+            _animals.Add(dog);
+        }
+        public List<Animal> GetAllAnimals()
+        {
+            return _animals;
+        }
+        public int GetAnimalCount()
+        {
+            return _animals.Count;
+        }
+        public int NumberOfCats()
+        {
+            return _animals.OfType<Cat>().Count();
+        }
+        public int NumberOfDogs()
+        {
+            return _animals.OfType<Dog>().Count();
+        }
+        public void ListCatsByAge()
+        {
+            var cats = _animals.OfType<Cat>();
+            foreach (var cat in cats)
+            {
+                Console.WriteLine($"Katze: Name = {cat.Name}, Farbe = {cat.Color}, Alter = {cat.Age} Jahre");
+            }
         }
     }
+
 }
