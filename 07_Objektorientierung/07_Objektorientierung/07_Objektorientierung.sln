@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07_Objektorientierung", "07_Objektorientierung\07_Objektorientierung.csproj", "{BCE706EC-2B2B-43AF-823A-FE31657048F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "07_Objektorientierung", "07_Objektorientierung\07_Objektorientierung.csproj", "{BCE706EC-2B2B-43AF-823A-FE31657048F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTierheim", "TestTierheim\TestTierheim.csproj", "{D6B5FDF7-F532-4610-BEE2-2F26BDDA83FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BCE706EC-2B2B-43AF-823A-FE31657048F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCE706EC-2B2B-43AF-823A-FE31657048F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCE706EC-2B2B-43AF-823A-FE31657048F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6B5FDF7-F532-4610-BEE2-2F26BDDA83FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6B5FDF7-F532-4610-BEE2-2F26BDDA83FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6B5FDF7-F532-4610-BEE2-2F26BDDA83FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6B5FDF7-F532-4610-BEE2-2F26BDDA83FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
