@@ -30,4 +30,3 @@ namespace _07_Objektorientierung
         }
     }
 }
-

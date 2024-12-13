@@ -16,7 +16,7 @@ namespace _07_Objektorientierung
         }
         public virtual void GibTypischenLautVonDir()
         {
-            Console.WriteLine("Ein typischer Laut eines generischen Tieres.");
+            Console.WriteLine("Laut des Tieres.");
         }
     }
 }
