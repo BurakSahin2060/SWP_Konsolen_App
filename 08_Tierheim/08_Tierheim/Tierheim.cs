@@ -51,5 +51,15 @@ namespace _08_Tierheim
                 Console.WriteLine($"Katze: Name = {cat.Name}, Farbe = {cat.Color}, Alter = {cat.Age} Jahre");
             }
         }
+        public double GetAverageAge()
+        {
+            if (_animals.Count == 0)
+            {
+                return 0; // ohne Division durch null
+            }
+
+            double totalAge = _animals.Sum(animal => animal.Age);
+            return totalAge / _animals.Count;
+        }
     }
 }
