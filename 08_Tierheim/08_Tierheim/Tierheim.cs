@@ -55,7 +55,7 @@ namespace _08_Tierheim
         {
             if (_animals.Count == 0)
             {
-                return 0; // ohne Division durch null
+                return 0; // ohne Division durch Null
             }
 
             double totalAge = _animals.Sum(animal => animal.Age);
