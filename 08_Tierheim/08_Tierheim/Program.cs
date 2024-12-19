@@ -15,7 +15,7 @@ Console.WriteLine($"Gesamte Tieranzahl im Tierheim: {tierheim.GetAnimalCount()}"
 Console.WriteLine($"Anzahl der Katzen im Tierheim: {tierheim.NumberOfCats()}");
 Console.WriteLine($"Anzahl der Hunde im Tierheim: {tierheim.NumberOfDogs()}");
 
-
+Console.WriteLine($"\nDurchschnittsalter aller Tiere: {tierheim.GetAverageAge():0.00} Jahre");
 
 Console.WriteLine("\nTiere im Tierheim:");
 foreach (var animal in tierheim.GetAllAnimals())
