@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\001_Programmieruebung2\001_Programmieruebung2.csproj" />
+    <ProjectReference Include="..\09_BitAddierer\09_BitAddierer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
