@@ -27,6 +27,7 @@ namespace UnitTest
         }
 
         [Test]
+        // Testcases!!!
         public void TestHalbaddierer()
         {
             _addierer.Halbaddierer(1, 1, out int sum, out int carry);
